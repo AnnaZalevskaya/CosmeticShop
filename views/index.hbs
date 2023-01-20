@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmetics store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://downloader.disk.yandex.ru/preview/6d9f2328d234691a64cc6b144756c06e61d0e8655fb5377b77bbb6c0fede3b7f/629a7c24/oveAGrdQE6NhI3BLOuStl6BtUjPQvI4yFN81_naUQvf710iB4A7JhhrB_jxAV_D8cYqzdjdRn8o-3e2YIUqvBg%3D%3D?uid=0&filename=lotos-preview.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903">
+  <style>
+    .page-light {
+      background-color: #cafaf2;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16pt;
+    }
+    .wrapper {
+      max-width: 1110 px;
+      margin: 0 auto;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav {
+      display: flex;
+      list-style-type: none;
+      padding-left: 0;
+      align-items: center;
+    }
+    .logo {
+      justify-content: center;
+    }
+    .nav-item {
+      margin-left: 52px;
+      margin-right: 52px;
+    }
+    .nav-link,.my-button-1 {
+      color: #ffb3db;
+      text-decoration: none;
+    }
+    .main {
+      background-image: url(https://sun9-east.userapi.com/sun9-32/s/v1/ig2/aOGRrn8vToVzZqRqV2u5tveD2Kj-WHOFyTL9a-eAGSxL3-u-kaHss8b_S0KpJqMdU0TsmwDcWuSIaM6iqLNSY_gC.jpg?size=2560x1600&quality=95&type=album);
+    }
+    .page-dark {
+      background-color: #212121;
+    }
+    .footer {
+      display: flex;
+      justify-content:flex-end;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: flex-end;
+      color: #fff;
+    }
+    .footer-list1 {
+      list-style-type: none;
+      padding-right: 10%;
+    }
+    .footer-list2 {
+      list-style-type: none;
+      padding-right: 25%;
+    }
+    /* Оформление панели */
+    #side-checkbox {
+      display: none;
+    }
+    .side-panel {
+      position: fixed;
+      z-index: 999999;
+      top: 0;
+      left: -360px;
+      background: #cafaf2;
+      transition: all 0.5s;
+      width: 320px;
+      height: 100vh;
+      box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+      color: black;
+      padding: 40px 20px;
+    }
+    .side-title {
+      font-size: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #BFE2FF;
+    }
+    /* Переключатели кнопки 1 */
+    .side-button .side-close {
+      display: none;
+    }
+    #side-checkbox:checked+.side-panel+.side-button-1-wr .side-button .side-open {
+      display: none;
+    }
+    #side-checkbox:checked+.side-panel+.side-button-1-wr .side-button .side-close {
+      display: block;
+    }
+    #side-checkbox:checked+.side-panel {
+      left: 0;
+    }
+    .shadow-text {
+      color: black;
+      /* Цвет  текста */
+      font-size: 24pt;
+      /* Размер  текста */
+      font-weight: bold;
+      padding: 0px 0px;
+      /*  text-transform: uppercase;*/
+      line-height: 1;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+    .shadow-text:hover {
+      color: #f1acea;
+      /* Меняем цвет текста */
+      -webkit-text-shadow: 2px 2px 2px black;
+      -moz-text-shadow: 2px 2px 2px black;
+      text-shadow: 2px 2px 2px black;
+    }
+    .catalog-list, .makeup {
+      text-decoration: none;
+      color: black;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .makeup{
+      padding-left: 5%;
+    }
+    /*Окно товара*/
+    .col-products{
+      display: inline-flex;
+      margin-top:10px;
+    }
+    .content {
+      margin-top: 50px;
+    }
+    .product {
+      background: #cafaf2 none repeat scroll 0 0;
+      border: 1px solid #c0c0c0;
+      height: 390px;
+      width: 270px;
+      overflow: hidden;
+      padding: 25px 15px;
+      position: relative;
+      text-align: center;
+      transition: all 0.5s ease 0s;
+      margin-bottom: 20px;
+      margin-right: 20px;
+      margin-left: 30px;
+    }
+    .product:hover {
+      box-shadow: 0 0 16px rgba(0, 0, 0, 0.5);
+    }
+    .product-img {
+      height: 200px;
+      width: 200px;
+      padding-left: 12%;
+    }
+    .img-pr{
+      border-radius: 10%;
+    }
+    .product-title a {
+      color: black;
+      font-weight: 500;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+    .product-desc {
+      max-height: 30px;
+      overflow: hidden;
+    }
+    .product-price {
+      bottom: 15px;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      color: #ffb3db;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    /*Пагинация*/
+    .pagination_section {
+      position: relative;
+      padding-bottom: 3%;
+      padding-left: 35%;
+    }
+    .pagination_section a{
+      text-decoration: none;
+      margin-left: 5px;
+      margin-right: 5px;
+      font-size: 18px;
+      color: #212121;
+    }
+    .pagination_section a:hover:not(.active) {
+      background-color: #031F3B;
+      color: white;
+      padding: 5px 5px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page page-light">
+    <div class="wrapper">
+      <header class="header">
+        <nav>
+          <ul class="nav">
+            <li class="nav-item"><label class="my-button-1" for="side-checkbox">Каталог</label></li>
+            <li class="nav-item"><a class="nav-link" href="/shops">Магазины</a><br></a></li>
+          </ul>
+        </nav>
+        <div class="logo"><img
+            src="https://downloader.disk.yandex.ru/preview/ef26c79a28ff1ee27e3ccb02e98120755939eb192b6209bc1945b1be457bd98a/629a5f0e/0caU55S7NdzAJ6Bj8MRcTGlIz4YFoBKBS6Z_E_ZrZNW_Qu9a1pOplul3_Ta9rgzoNoflimLwXIUYdQ9yrt5RQw%3D%3D?uid=0&filename=emb.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903"
+            width="160" height="160" alt="Logo"></div>
+        <ul class="nav">
+          <li class="nav-item"><a class="nav-link" href="/login">Авторизация<br></a></li>
+          <li class="nav-item"><a class="nav-link" href="">Корзина</a></li>
+        </ul>
+      </header>
+    </div>
+  </div>
+
+  <input type="checkbox" id="side-checkbox" />
+  <div class="side-panel">
+    <label class="side-button-2" for="side-checkbox"><img
+        src="https://downloader.disk.yandex.ru/preview/892ad8a824dd1b70d20ec202815272d89ff05ee64ac55e1b32a6c61177748c3b/629a7bec/9F1O8loAIUzow4RxcmpjTdyXhuOMIbVnyAD84NFa0GbZFM0Eo1_UE0tpg9vg00KWtfDgU3hpgGdi6i44gCf2fw%3D%3D?uid=0&filename=close.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903"
+        width="27" height="27"></label>
+    <div class="side-title">
+      <p class="shadow-text">Каталог</p>
+    </div>
+    <p><a href="/cat1" class="catalog-list">Макияж</a></p>
+    <p><a href="/cat1_1" class="makeup">Для лица</a></p>
+    <p><a href="/cat1_2" class="makeup">Для глаз</a></p>
+    <p><a href="/cat1_3" class="makeup">Для губ</a></p>
+    <p><a href="/cat1_4" class="makeup">Для бровей</a></p>
+    <p><a href="/cat2" class="catalog-list">Уход за кожей</a></p>
+    <p><a href="/cat3" class="catalog-list">Уход за волосами</a></p>
+    <p><a href="/cat4" class="catalog-list">Мужчинам</a></p>
+    <p><a href="/cat5" class="catalog-list">Детям</a></p>
+  </div>
+  <div class="side-button-wr">
+    <label class="side-button" for="side-checkbox">
+    </label>
+  </div>
+
+  <div class="main">
+    <img
+      src="https://downloader.disk.yandex.ru/preview/6cb829b1685ab97e4e86811f8c7b11f989840efe99e192876cf9e553724adadf/629a5fbd/nQWVSgXklY1fWUPVR7BpoJuFJw4PXCE35cmr9IysMXMlpdEASoXkaZEV1whx3G71C-SiqJNWdmTbwcJrrrS2Cw%3D%3D?uid=0&filename=decor-line.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903"
+      width="100%" height="150">
+    <div class="nav">
+      <ul class="pages">
+        {{#each users}}
+        <div class="col-products">
+          <div class="row">
+            <div class="col-sm-4">
+              <div class="product">
+                <div class="product-img">
+                  <img class="img-pr" src="{{this.Изображение}}" border-radius="10%" width="200px" height="200px">
+                </div>
+                <p class="product-title">
+                  <a href="/product_form/{{this.id}}">{{this.Тип}}<br>{{this.Название}}</a>
+                </p>
+                <p class="product-desc">{{this.Бренд}}</p>
+                <p class="product-price"><b>{{this.Стоимость}} BYN</b></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/each}}
+    </div>
+    <br>
+     <form method="GET" action="?">
+     <div class="pagination_section">
+       <script>
+         "use strict";
+        var articleDiv = document.querySelector("div.pagination_section");
+        let fragment = document.createDocumentFragment(); 
+        const amount = {{pageCount}}; 
+        for (let i = 1; i <= amount; i++) {
+          let url = document.createElement('a');
+          let span = document.createElement('span');
+        span.innerHTML = i;
+        url.href = '/page/' + i + '/' + amount;
+        url.appendChild(span);
+  
+        fragment.appendChild(url);
+      }
+      articleDiv.appendChild(fragment);
+       </script>
+    </div>
+    </form>
+  </div>
+
+  <div class="page-dark">
+    <div class="wrapper">
+      <footer class="footer">
+        <div class="footer-nav">
+          <ul class="footer-list1">
+            <li>Контактная информация:</li>
+          </ul>
+          <ul class="footer-list2">
+            <li align="center">+375336115206</li>
+            <li align="center">
+              <a href="https://vk.com/id214632314" target="_blank"><img src="https://downloader.disk.yandex.ru/preview/fa75176dc50deefe95e7cfd956eb9e8db9db9c30f186e3342add8412b23c75f4/629a7cdf/zSTbF5LVhqdQkcCPVwhi0uvwSMOaGv4l-w1KEFb2Mw2t7SrWsh_YinUpnCO2SPDYVJaC3aRYQuEtE4sPZCcaZg%3D%3D?uid=0&filename=VK.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048" width="32" height="32"></a>   
+              &nbsp;
+              <a href="https://www.instagram.com/_azalevskaa_/" target="_blank"><img src="https://downloader.disk.yandex.ru/preview/6de49978d2d2296bce64cd4e8585ef72052179162110c78168edcd713cea65b8/629a7d11/kCgTEGb_Nboi8QB15FJzGzgPJ-7U0PTOjorBNu1GtN0UAZWEQ9UqKuJ72eCHS9RU72T7pGujJ_WtW7IuQKf9HA%3D%3D?uid=0&filename=insta-min.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=2048x2048" width="32" height="32"></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>
+
+</html>

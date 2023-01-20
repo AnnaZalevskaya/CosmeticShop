@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosmetics store</title>
+    <link rel="icon" href="https://downloader.disk.yandex.ru/preview/6d9f2328d234691a64cc6b144756c06e61d0e8655fb5377b77bbb6c0fede3b7f/629a7c24/oveAGrdQE6NhI3BLOuStl6BtUjPQvI4yFN81_naUQvf710iB4A7JhhrB_jxAV_D8cYqzdjdRn8o-3e2YIUqvBg%3D%3D?uid=0&filename=lotos-preview.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903">
+    <style>
+        html, body {
+            background-image: url(https://sun9-east.userapi.com/sun9-32/s/v1/ig2/aOGRrn8vToVzZqRqV2u5tveD2Kj-WHOFyTL9a-eAGSxL3-u-kaHss8b_S0KpJqMdU0TsmwDcWuSIaM6iqLNSY_gC.jpg?size=2560x1600&quality=95&type=album);
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+       .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            display: flex;
+        }
+        .left-column {
+            width: 100%;
+            position: relative;
+            margin-left: 23%;
+        }
+        .right-column {
+            width: 100%;
+            margin-top: 60px;
+        }
+        .product-description {
+            border-bottom: 1px solid #E1E8EE;
+            margin-bottom: 20px;
+        }
+        .product-description span {
+            font-size: 12px;
+            color: #08151f;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .product-description h1 {
+            font-weight: 300;
+            font-size: 50px;
+            color: #43484D;
+            letter-spacing: -2px;
+        }
+        .product-description p {
+            font-size: 24px;
+            font-weight: 300;
+            color: #212121;
+            line-height: 30px;
+        }
+        .product-price {
+            display: flex;
+            align-items: center;
+            justify-content: space-around ;
+        }
+        .price{
+            color:black;
+            font-size: 24px;
+        }
+        .cart-btn {
+            display: inline-block;
+            background-color: #cafaf2;
+            border-radius: 6px;
+            border: 2px;
+            border-color: azure;
+            font-size: 16px;
+            color: #ffb3db;
+            text-decoration: none;
+            padding: 12px 30px;
+            transition: all .5s;
+            margin-left: 40%;
+        }
+        .cart-btn:hover {
+            background-color: #212121;
+            cursor: pointer;
+        }
+        .img_product{
+            width: 400px;
+            height: 400px;
+            border-radius: 10%;
+        }
+        @media (max-width: 940px) {
+            .container {
+                flex-direction: column;
+                margin-top: 60px;
+            }
+            .left-column, .right-column {
+                width: 100%;
+            }
+            .left-column img {
+                width: 300px;
+                right: 0;
+                top: -65px;
+                left: initial;
+            }
+        }
+        @media (max-width: 535px) {
+            .left-column img {
+                width: 220px;
+                top: -85px;
+            }
+        }
+    table{
+        padding-top: 10%;
+    }
+    </style>
+</head>
+<body>
+<form action="/product_form" method="GET">
+<table align="center" width="100%">
+<td width="50%">
+<div class="left-column">
+    <img class="img_product" src="{{product.Изображение}}">
+    </div>
+</td>
+<td width="50%">
+<div class="right-column">
+    <div class="product-description"><p>{{product.Тип}}<br>{{product.Название}}</p>
+        <h1>{{product.Бренд}}</h1>
+        <span>{{product.Описание}}</span>
+    </div>
+    <div class="product-price"><p class="price"><b>{{product.Стоимость}} BYN</b></p>
+        <a class="cart-btn" href="/add/{{product.id}}">Добавить в корзину</a></div>
+</div>
+</td>
+</table>
+</form>
+</body>
+</html>

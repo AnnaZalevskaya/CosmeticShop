@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cosmetics store</title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="https://downloader.disk.yandex.ru/preview/6d9f2328d234691a64cc6b144756c06e61d0e8655fb5377b77bbb6c0fede3b7f/629a7c24/oveAGrdQE6NhI3BLOuStl6BtUjPQvI4yFN81_naUQvf710iB4A7JhhrB_jxAV_D8cYqzdjdRn8o-3e2YIUqvBg%3D%3D?uid=0&filename=lotos-preview.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903">
+    <style>
+        .field{
+            width:180px;
+            background-color:azure;
+        }
+        .create-btn{
+            background-color: #cafaf2;
+            border-radius: 6px;
+            border: 2px;
+            border-color: azure;
+            font-size: 18px;
+            color: #212121;
+            text-decoration: none;
+            padding: 8px 30px;
+            margin-left: 15px;
+        }
+        .create-btn:hover {
+            background-color: #ffb3db;
+            cursor: pointer;
+        }
+        .back-btn{
+            text-decoration: none;
+            color: #212121;
+        }
+        html{background-image: url(https://sun9-east.userapi.com/sun9-32/s/v1/ig2/aOGRrn8vToVzZqRqV2u5tveD2Kj-WHOFyTL9a-eAGSxL3-u-kaHss8b_S0KpJqMdU0TsmwDcWuSIaM6iqLNSY_gC.jpg?size=2560x1600&quality=95&type=album);}
+    </style>
+</head>
+<body>
+<h1>Добавление товара</h1>
+<form method="POST">
+    
+    <label>Название</label><br>
+    <input name="Название" class="field"/><br><br>
+    <label>Бренд</label><br>
+    <input name="Бренд_id" type="number" class="field" min="1" max="19" /><br><br>
+    <label>Предназначение</label><br>
+    <input name="Предназначение_id" type="number" class="field" min="1" max="5" /><br><br>
+    <label>Тип</label><br>
+    <input name="Тип_id" type="number" class="field"  min="1" max="22" /><br><br>
+    <label>Описание</label><br>
+    <input name="Описание" class="field"/><br><br>
+    <label>Стоимость</label><br>
+    <input name="Стоимость" type="number" class="field" min="1" max="500" /><br><br>
+    <label>Изображение</label><br>
+    <input name="Изображение" type="url"/><br><br>
+    <input class="create-btn" type="submit" value="Отправить" />
+</form>
+<br>
+<a class="back-btn" href="/admin">К списку товаров</a>
+</body>
+<html>
