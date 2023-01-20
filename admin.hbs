@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmetics store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://downloader.disk.yandex.ru/preview/6d9f2328d234691a64cc6b144756c06e61d0e8655fb5377b77bbb6c0fede3b7f/629a7c24/oveAGrdQE6NhI3BLOuStl6BtUjPQvI4yFN81_naUQvf710iB4A7JhhrB_jxAV_D8cYqzdjdRn8o-3e2YIUqvBg%3D%3D?uid=0&filename=lotos-preview.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903">
+  <style>
+.page-light{
+    background-color: #cafaf2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16pt;
+}
+.wrapper{
+    max-width:1110 px;
+    margin:0 auto; 
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    list-style-type: none;
+    padding-left: 0;
+    align-items: center;
+}
+.logo{
+    justify-content: center;
+}
+.nav-item{
+    margin-left: 52px;
+    margin-right: 52px;
+}
+.nav-link, .my-button-1{
+    color: #ffb3db;
+    text-decoration: none;
+}
+.main{
+    background-image: url(https://sun9-east.userapi.com/sun9-32/s/v1/ig2/aOGRrn8vToVzZqRqV2u5tveD2Kj-WHOFyTL9a-eAGSxL3-u-kaHss8b_S0KpJqMdU0TsmwDcWuSIaM6iqLNSY_gC.jpg?size=2560x1600&quality=95&type=album);
+}
+    /* Оформление панели */
+    #side-checkbox {
+      display: none;
+    }
+    .side-panel {
+      position: fixed;
+      z-index: 999999;
+      top: 0;
+      left: -360px;
+      background: #cafaf2;
+      transition: all 0.5s;
+      width: 320px;
+      height: 100vh;
+      box-shadow: 10px 0 20px rgba(0, 0, 0, 0.4);
+      color: black;
+      padding: 40px 20px;
+    }
+    .side-title {
+      font-size: 20px;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #BFE2FF;
+    }
+    /* Переключатели кнопки 1 */
+    .side-button .side-close {
+      display: none;
+    }
+    #side-checkbox:checked+.side-panel+.side-button-1-wr .side-button .side-open {
+      display: none;
+    }
+    #side-checkbox:checked+.side-panel+.side-button-1-wr .side-button .side-close {
+      display: block;
+    }
+    #side-checkbox:checked+.side-panel {
+      left: 0;
+    }
+    .shadow-text {
+      color: black;
+      /* Цвет  текста */
+      font-size: 24pt;
+      /* Размер  текста */
+      font-weight: bold;
+      padding: 0px 0px;
+      /*  text-transform: uppercase;*/
+      line-height: 1;
+      -webkit-transition: all 0.5s ease;
+      transition: all 0.5s ease;
+    }
+    .shadow-text:hover {
+      color: #f1acea;
+      /* Меняем цвет текста */
+      -webkit-text-shadow: 2px 2px 2px black;
+      -moz-text-shadow: 2px 2px 2px black;
+      text-shadow: 2px 2px 2px black;
+    }
+    .catalog-list, .makeup {
+      text-decoration: none;
+      color: black;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .makeup{
+      padding-left: 5%;
+    }
+    .edit-btn{
+      background-color: #cafaf2;
+      border-radius: 6px;
+      border: 2px;
+      border-color: azure;
+      font-size: 16px;
+      color: #212121;
+      text-decoration: none;
+      padding: 0px 2px;
+      margin-left: 15px;
+    }
+    .edit-btn:hover {
+      background-color: #ffb3db;
+      cursor: pointer;
+    }
+    .delete-btn{
+      background-color: #cafaf2;
+      border-radius: 6px;
+      border: 2px;
+      border-color: azure;
+      font-size: 16px;
+      color: #212121;
+      text-decoration: none;
+      padding: 0px 2px;
+      margin-left: 15px;
+    }
+    .delete-btn:hover {
+      background-color: #ffb3db;
+      cursor: pointer;
+    }
+    .create-btn{
+      background-color: #cafaf2;
+      border-radius: 6px;
+      border: 2px;
+      border-color: azure;
+      font-size: 18px;
+      color: #212121;
+      text-decoration: none;
+      padding: 2px 2px;
+      margin-left: 15px;
+    }
+    .create-btn:hover {
+      background-color: #ffb3db;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="page page-light">
+    <div class="wrapper">
+      <header class="header">
+        <nav>
+          <ul class="nav">
+            <li class="nav-item"><label class="my-button-1" for="side-checkbox">Каталог</label></li>
+            <li class="nav-item"><a class="nav-link" href="/shops">Магазины</a><br></a></li>
+          </ul>
+        </nav>
+        <div class="logo"><img src="https://downloader.disk.yandex.ru/preview/ef26c79a28ff1ee27e3ccb02e98120755939eb192b6209bc1945b1be457bd98a/629a5f0e/0caU55S7NdzAJ6Bj8MRcTGlIz4YFoBKBS6Z_E_ZrZNW_Qu9a1pOplul3_Ta9rgzoNoflimLwXIUYdQ9yrt5RQw%3D%3D?uid=0&filename=emb.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903" width="160" height="160" alt="Logo"></div>
+        <ul class="nav">
+          <li class="nav-item"><label class="nav-link">Пользователь<br><label align="center">Anna</label></li>
+          <li class="nav-item"><a class="nav-link" href="/cart">Корзина</a></li>
+        </ul>
+      </header>
+    </div>
+  </div>
+
+  <input type="checkbox" id="side-checkbox" />
+  <div class="side-panel">
+    <label class="side-button-2" for="side-checkbox">
+      <img src="https://downloader.disk.yandex.ru/preview/892ad8a824dd1b70d20ec202815272d89ff05ee64ac55e1b32a6c61177748c3b/629a7bec/9F1O8loAIUzow4RxcmpjTdyXhuOMIbVnyAD84NFa0GbZFM0Eo1_UE0tpg9vg00KWtfDgU3hpgGdi6i44gCf2fw%3D%3D?uid=0&filename=close.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903"
+      width="27" height="27"></label>
+    <div class="side-title">
+      <p class="shadow-text">Каталог</p>
+    </div>
+    <p><a href="/cat1" class="catalog-list">Макияж</a></p>
+    <p><a href="/cat1_1" class="makeup">Для лица</a></p>
+    <p><a href="/cat1_2" class="makeup">Для глаз</a></p>
+    <p><a href="/cat1_3" class="makeup">Для губ</a></p>
+    <p><a href="/cat1_4" class="makeup">Для бровей</a></p>
+    <p><a href="/cat2" class="catalog-list">Уход за кожей</a></p>
+    <p><a href="/cat3" class="catalog-list">Уход за волосами</a></p>
+    <p><a href="/cat4" class="catalog-list">Мужчинам</a></p>
+    <p><a href="/cat5" class="catalog-list">Детям</a></p>
+  </div>
+  <div class="side-button-wr">
+    <label class="side-button" for="side-checkbox">
+    </label>
+  </div>
+
+<div class="main">
+<img src="https://downloader.disk.yandex.ru/preview/6cb829b1685ab97e4e86811f8c7b11f989840efe99e192876cf9e553724adadf/629a5fbd/nQWVSgXklY1fWUPVR7BpoJuFJw4PXCE35cmr9IysMXMlpdEASoXkaZEV1whx3G71C-SiqJNWdmTbwcJrrrS2Cw%3D%3D?uid=0&filename=decor-line.png&disposition=inline&hash=&limit=0&content_type=image%2Fpng&owner_uid=0&tknv=v2&size=1870x903" width="100%" height="150">
+<h1 align="center" color="#ffb3db">Редактирование каталога товаров</h1>
+<p><a class="create-btn" href="/create">Добавить товар</a></p>
+<table border="2px" border-color="white">
+    <tr><th>id</th><th>Изображение</th><th>Название</th><th>Бренд</th><th>Предназначение</th><th>Тип</th><th>Описание</th><th>Стоимость</th></tr>
+    {{#each users}}
+        <tr>
+            <td>{{this.id}}</td>
+            <td><img src="{{this.Изображение}}" width="95" height="95"></td>
+            <td>{{this.Название}}</td>
+            <td>{{this.Бренд}}</td>
+            <td>{{this.Предназначение}}</td>
+            <td>{{this.Тип}}</td>
+            <td>{{this.Описание}}</td>
+            <td>{{this.Стоимость}}</td>
+            <td>
+                <a class="edit-btn" href="/edit/{{this.id}}">Изменить</a>
+                <form action="delete/{{this.id}}" method="POST" style="display:inline;">
+                    <input class="delete-btn" type="submit" value="Удалить" />
+                </form>
+            </td>
+        </tr>
+{{/each}}
+</table>
+</div>
+</body>
+</html>
